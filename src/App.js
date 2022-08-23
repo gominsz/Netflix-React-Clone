@@ -8,6 +8,7 @@ import Tmdb from "./Tmdb";
 const header = () => {
   const [movieList, setMovieLiest] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const LoadAll = async () => {
@@ -28,9 +29,24 @@ const header = () => {
     LoadAll();
   }, []);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    };
+
+    window.addEventListener("scroll", scrollListener);
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
   return (
     <div className="page">
-      <Header />
+      <Header black={blackHeader} />
 
       {featuredData && <FeaturedMovie item={featuredData} />}
 
