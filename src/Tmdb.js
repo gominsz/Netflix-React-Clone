@@ -20,6 +20,7 @@ export default {
   getHomeList: async () => {
     return [
       {
+        banana: "",
         slug: "originals",
         title: "Originais do Netflex",
         items: await basicFatch(
