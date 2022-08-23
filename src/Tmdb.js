@@ -84,12 +84,12 @@ export default {
       switch (type) {
         case "movie":
           info = await basicFatch(
-            `/movie/${movieId}?languege=pt-BR&api_key=${REACT_APP_API_KEY}`
+            `/movie/${movieId}?languege=pt-BR&api_key=${process.env.REACT_APP_API_KEY}`
           );
           break;
         case "tv":
           info = await basicFatch(
-            `/tv/${movieId}?languege=pt-BR&api_key=${REACT_APP_API_KEY}`
+            `/tv/${movieId}?languege=pt-BR&api_key=${process.env.REACT_APP_API_KEY}`
           );
           break;
       }

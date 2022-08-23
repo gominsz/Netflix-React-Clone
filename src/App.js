@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import FeaturedMovie from "./componentes/FeaturedMovie";
+import FeaturedMovie from "./componentes/Featured";
+import Header from "./componentes/Header";
 import MovieRow from "./componentes/MovieRow";
 import Tmdb from "./Tmdb";
 
@@ -19,9 +20,9 @@ const header = () => {
       let randomChosen = Math.floor(
         Math.random() * (originals[0].items.results.length - 1)
       );
-      let Chosen = originals[0].items.results[randomChosen];
-
-      console.log(Chosen);
+      let chosen = originals[0].items.results[randomChosen];
+      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, "tv");
+      setFeaturedData(chosenInfo);
     };
 
     LoadAll();
@@ -29,6 +30,8 @@ const header = () => {
 
   return (
     <div className="page">
+      <Header />
+
       {featuredData && <FeaturedMovie item={featuredData} />}
 
       <section className="lists">
