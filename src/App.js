@@ -55,6 +55,17 @@ const header = () => {
           <MovieRow key={key} title={item.title} items={item.items} />
         ))}
       </section>
+
+      <footer>
+        Feito com{" "}
+        <span role="img" aria-label="coração">
+          ❤️
+        </span>
+        pela B7web <br />
+        Direitos de imagem para Netflix
+        <br />
+        Dados pegos do site Themoviedb.org
+      </footer>
     </div>
   );
 };
