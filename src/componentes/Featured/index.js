@@ -41,7 +41,7 @@ export default ({ item }) => {
               </a>
               <a
                 href={`/list/add${item.id}`}
-                className="featured--mylistbutton>"
+                className="featured--mylistbutton"
               >
                 ✙ Minha Lista
               </a>
