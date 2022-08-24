@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./MovieRow.css";
 
 export default ({ title, items }) => {
-  const [scrollX, setScrollX] = useState(-400);
+  const [scrollX, setScrollX] = useState(0);
 
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
